@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                          // Compilar para ES6
+    "module": "CommonJS",                      // Use CommonJS para os módulos
+    "esModuleInterop": true,                   // Permite a interoperabilidade com módulos ES6
+    "skipLibCheck": true,                      // Ignora a verificação de bibliotecas
+    "forceConsistentCasingInFileNames": true,  // Garante consistência nas maiúsculas/minúsculas
+    "moduleResolution": "node",                // Resolve módulos como o Node.js
+    "types": ["node", "express"]               // Inclua os tipos do node e express
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
