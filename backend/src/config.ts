@@ -1,7 +1,5 @@
-// src/config.ts
-const config = {
-    appName: 'MyApp',
-  };
-  
-  export default config;
-  
+// config.ts
+export const config = {
+  appName: "Minha Aplicação",
+  port: 3000,
+};
