@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import express from 'express';
 import { DatabaseService } from './databaseService';
 import { Cliente } from './models/Cliente';
