@@ -1,72 +1,59 @@
 <template>
-    <div class="login-container">
-      <div class="login-box">
-        <h1>Jaegar Resto</h1>
-        <h2>Login</h2>
-        <form @submit.prevent="handleLogin">
-          <input
-            type="email"
-            placeholder="USUÁRIO OU E-MAIL"
-            v-model="email"
-            required
-          />
-          <input
-            type="password"
-            placeholder="SENHA"
-            v-model="password"
-            required
-          />
-          <button type="submit">ENTRAR</button>
-        </form>
-        <p class="register">
-          Não tem acesso?
-          <router-link to="/register">Cadastre-se aqui.</router-link>
-        </p>
-      </div>
+  <div class="login-container">
+    <div class="login-box">
+      <h1>Jaegar Resto</h1>
+      <h2>Login</h2>
+      <form @submit.prevent="handleLogin">
+        <input
+          type="email"
+          placeholder="USUÁRIO OU E-MAIL"
+          v-model="email"
+          required
+        />
+        <input
+          type="password"
+          placeholder="SENHA"
+          v-model="password"
+          required
+        />
+        <button type="submit">ENTRAR</button>
+      </form>
+      <p class="register">
+        Não tem acesso?
+        <router-link to="/register">Cadastre-se aqui.</router-link>
+      </p>
     </div>
-  </template>
-  
-  <script lang="ts">
-  import { defineComponent, reactive } from "vue";
-  //import axiosInstance from "../utils/axiosInstance"; // Use a instância do Axios
-  
-  export default defineComponent({
-    name: "Login",
-    setup() {
-      const form = reactive({
-        email: "",
-        password: "",
-      });
-  
-      const handleLogin = async () => {
-        try {
-          const response = await axiosInstance.post("/auth/login", {
-            email: form.email,
-            password: form.password,
-          });
-  
-          // Recebendo o token do backend
-          const { token } = response.data;
-          console.log("Login realizado com sucesso:", token);
-  
-          // Armazene o token no localStorage para autenticação posterior
-          localStorage.setItem("authToken", token);
-  
-          // Redirecione o usuário para outra página (exemplo: painel)
-          window.location.href = "/dashboard";
-        } catch (error) {
-          console.error("Erro ao fazer login:", error.response?.data || error.message);
-          alert("E-mail ou senha inválidos.");
-        }
-      };
-  
-      return {
-        ...form,
-        handleLogin,
-      };
-    },
-  });
-  </script>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+import { useRouter } from "vue-router";
+
+export default defineComponent({
+  name: "Login",
+  setup() {
+    const email = ref("");
+    const password = ref("");
+    const router = useRouter();
+
+    const handleLogin = () => {
+      if (email.value && password.value) {
+        console.log("Usuário autenticado!");
+        router.push("/dashboard"); // Redireciona para o Dashboard
+      } else {
+        console.error("Credenciais inválidas.");
+      }
+    };
+
+    return {
+      email,
+      password,
+      handleLogin,
+    };
+  },
+});
+</script>
   
   <style scoped>
   /* Estilos que já estão no componente */

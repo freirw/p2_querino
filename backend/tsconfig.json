@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES6",                          // Compilar para ES6
-    "module": "CommonJS",                      // Use CommonJS para os módulos
-    "esModuleInterop": true,                   // Permite a interoperabilidade com módulos ES6
-    "skipLibCheck": true,                      // Ignora a verificação de bibliotecas
-    "forceConsistentCasingInFileNames": true,  // Garante consistência nas maiúsculas/minúsculas
-    "moduleResolution": "node",                // Resolve módulos como o Node.js
-    "types": ["node", "express"]               // Inclua os tipos do node e express
+    "target": "ES6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*", "../frontend/vue-project/src/services/clienteService.ts"],
+  "exclude": ["node_modules"]
 }
