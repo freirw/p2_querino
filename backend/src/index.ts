@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/auth";
 import 'reflect-metadata'; 
 import cors from 'cors'; 
-import { PedidoController } from './controllers/pedidoController';
+import { PedidoController } from './controllers/PedidoController';
 dotenv.config();
 
 const app = express();
@@ -17,7 +17,7 @@ app.post('/api/pedido', (req, res) => {
   console.log("Corpo da requisição:", req.body); // Adiciona esse log para garantir que o corpo da requisição está sendo lido
   pedidoController.processarPedido(req, res);
 });
-
+app.post('/pedidos', PedidoController.getInstance().processarPedido);
 // Rotas
 app.use("/auth", authRoutes);
 

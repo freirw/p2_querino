@@ -20,7 +20,7 @@
         >
           <div>
             <p class="text-sm font-medium">{{ item.name }}</p>
-            <p class="text-xs text-gray-400">${{ item.price.toFixed(2) }}</p>
+            <p class="text-xs text-gray-400">${{ item.price}}</p>
             <input
               type="text"
               placeholder="Order Note..."
@@ -30,7 +30,7 @@
           <div class="text-center">
             <p class="text-sm">{{ item.quantity }}</p>
             <p class="text-sm font-medium">
-              ${{ (item.price * item.quantity).toFixed(2) }}
+              ${{ (item.price * item.quantity)}}
             </p>
           </div>
           <button class="text-red-500">

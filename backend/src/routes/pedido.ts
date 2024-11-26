@@ -1,5 +1,5 @@
 import express from 'express';
-import { PedidoController } from '../controllers/pedidoController';
+import { PedidoController } from '../controllers/PedidoController';
 
 const router = express.Router();
 const pedidoController = PedidoController.getInstance();

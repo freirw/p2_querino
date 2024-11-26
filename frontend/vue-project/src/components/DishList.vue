@@ -4,7 +4,7 @@
         <img :src="dish.image" :alt="dish.name" />
         <h3>{{ dish.name }}</h3>
         <p>{{ dish.description }}</p>
-        <div class="price">R$ {{ dish.price.toFixed(2) }}</div>
+        <div class="price">R$ {{ dish.price }}</div>
         <button @click="addToCart(dish)">Adicionar</button>
       </div>
     </div>

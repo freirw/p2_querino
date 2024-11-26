@@ -1,10 +1,10 @@
-
 import express from 'express';
 import { DatabaseService } from './databaseService';
 import { Cliente } from './models/Cliente';
 import 'reflect-metadata'; // Certifique-se de importar isso no início
 import cors from 'cors'; // Importando o pacote CORS
-import { PedidoController } from './controllers/pedidoController';
+import { PedidoController } from './controllers/PedidoController';
+import { Pedido } from './models/Pedido';
 
 const app = express();
 const port = 3000;
@@ -23,6 +23,22 @@ app.use(cors({
 app.post('/api/pedido', (req, res) => {
   console.log("Corpo da requisição:", req.body); // Adiciona esse log para garantir que o corpo da requisição está sendo lido
   pedidoController.processarPedido(req, res);
+});
+
+// Novo endpoint para buscar todos os pedidos
+app.get('/api/pedidos', async (req, res) => {
+  const dbService = DatabaseService.getInstance();
+  const dataSource = dbService.getDataSource();
+
+  // Espera o DataSource estar sincronizado antes de fazer a consulta
+  if (!dataSource.isInitialized) {
+    await dataSource.initialize();
+  }
+
+  // Agora usamos o novo DataSource para consultar os pedidos
+  const pedidos = await dataSource.getRepository(Pedido).find();
+
+  res.json(pedidos);
 });
 
 // Inicializa a conexão com o banco de dados

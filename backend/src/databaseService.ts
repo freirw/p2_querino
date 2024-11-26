@@ -1,6 +1,7 @@
 import { DataSource } from 'typeorm';
 import { Cliente } from './models/Cliente';
 import { Pedido } from './models/Pedido'; 
+import { Item } from './models/Item';
 
 export class DatabaseService {
   private static instance: DatabaseService;
@@ -10,13 +11,13 @@ export class DatabaseService {
     this.dataSource = new DataSource({
       type: 'mysql',
       host: 'localhost',
-      port: 3306, 
+      port: 3307, 
       username: 'root',
       password: '',
       database: 'jaegar_resto',
       synchronize: true,
-      logging: false,
-      entities: [Cliente, Pedido],
+      logging: true,
+      entities: [Cliente, Pedido, Item],
     });
   }
 

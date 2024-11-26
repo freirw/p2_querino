@@ -9,6 +9,7 @@
     "outDir": "./dist",
     "baseUrl": "./src",
     "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
     "emitDecoratorMetadata": true,
   },
   "include": ["src/**/*", "../frontend/vue-project/src/services/clienteService.ts"],

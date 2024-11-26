@@ -1,23 +1,14 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Item } from './Item';
 
 @Entity()
 export class Pedido {
   @PrimaryGeneratedColumn()
-  id!: number;  // O operador "!" indica que o campo será inicializado automaticamente
+  id: number;
 
   @Column()
   idCliente: number;
 
-  @Column('json')
-  items: { id: number; name: string; price: number; quantity: number }[];
-
-  @Column('decimal')
-  total: number;
-
-  // Construtor para garantir a inicialização
-  constructor(idCliente: number, items: { id: number; name: string; price: number; quantity: number }[], total: number) {
-    this.idCliente = idCliente;
-    this.items = items;
-    this.total = total;
-  }
+  @OneToMany(() => Item, (item) => item.pedido)
+  itens: Item[]; // Não inicialize com um array vazio
 }
