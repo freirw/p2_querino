@@ -4,22 +4,21 @@ import { Cliente } from '../models/Cliente';
 import { ClienteSingleton } from '../services/ClienteSingleton';
 import bcrypt from 'bcryptjs';
 
-const router = express.Router(); // Instância do Router do Express
+const router = express.Router(); 
 
-// Rota para buscar todos os clientes
 router.get('/clientes', async (req: Request, res: Response) => {
   try {
     const clienteRepository = getRepository(Cliente);
     const clientes = await clienteRepository.find();
 
-    return res.json(clientes); // Retorna todos os clientes
+    return res.json(clientes); 
   } catch (error) {
     console.error('Erro ao buscar clientes:', error);
     return res.status(500).json({ error: 'Erro ao buscar clientes.' });
   }
 });
 
-// Rota para buscar um cliente pelo ID
+
 router.get('/cliente/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
 
@@ -32,17 +31,15 @@ router.get('/cliente/:id', async (req: Request, res: Response) => {
       return res.status(404).json({ error: 'Cliente não encontrado.' });
     }
 
-    // Salva o cliente no Singleton
     ClienteSingleton.getInstance().setCliente(cliente);
 
-    return res.json(cliente); // Retorna os dados do cliente
+    return res.json(cliente); 
   } catch (error) {
     console.error('Erro ao buscar cliente:', error);
     return res.status(500).json({ error: 'Erro ao buscar cliente.' });
   }
 });
 
-// Rota para criar um novo cliente
 router.post('/clientes', async (req: Request, res: Response) => {
   const { nome, email } = req.body;
 
@@ -58,7 +55,6 @@ router.post('/clientes', async (req: Request, res: Response) => {
   }
 });
 
-// Rota de login do cliente
 interface LoginRequestBody {
   email: string;
   senha: string;
@@ -75,14 +71,14 @@ router.post('/login', async (req: Request<{}, {}, LoginRequestBody>, res: Respon
       return res.status(404).json({ error: 'Cliente não encontrado.' });
     }
 
-    // Verifique se a senha fornecida corresponde à senha criptografada no banco de dados
+  
     const senhaValida = await bcrypt.compare(senha, cliente.senha);
 
     if (!senhaValida) {
       return res.status(401).json({ error: 'Senha incorreta.' });
     }
 
-    // Salva o cliente no Singleton
+
     ClienteSingleton.getInstance().setCliente(cliente);
 
     return res.json({ message: 'Login bem-sucedido!', cliente });

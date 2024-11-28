@@ -5,7 +5,7 @@ export class PedidoController {
   private static instance: PedidoController;
 
   private constructor() {
-    // Construtor privado para evitar instanciação direta
+
   }
 
   public static getInstance(): PedidoController {
@@ -15,16 +15,16 @@ export class PedidoController {
     return PedidoController.instance;
   }
 
-  // Decorator aplicado ao método
+
   @logExecution
   async processarPedido(req: Request, res: Response) {
-    const pedido = req.body; // Obtém o pedido do corpo da requisição
+    const pedido = req.body; 
     console.log(`Processando pedido: ${JSON.stringify(pedido)}`);
 
     // Simula o processamento do pedido
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    // Envia a resposta após o processamento
+   
     return res.status(200).json({
       status: "sucesso",
       pedidoId: pedido.id,

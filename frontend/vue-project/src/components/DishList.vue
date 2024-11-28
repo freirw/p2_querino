@@ -23,13 +23,13 @@
     name: "DishList",
     props: {
       dishes: {
-        type: Array as () => Dish[], // Defina que 'dishes' é um array de objetos do tipo Dish
+        type: Array as () => Dish[], 
         required: true,
       },
     },
     methods: {
       addToCart(dish: Dish) {
-        this.$emit("add-to-cart", dish); // Passa o dish para o componente pai
+        this.$emit("add-to-cart", dish); 
       },
     },
   };

@@ -3,22 +3,22 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/auth";
 import 'reflect-metadata'; 
 import cors from 'cors'; 
-import { PedidoController } from './controllers/PedidoController';
+import { PedidoController } from './controllers/pedidoController';
 dotenv.config();
 
 const app = express();
 const pedidoController = PedidoController.getInstance();
 
-// Middleware para interpretar JSON
-app.use(express.json()); // Certifique-se de que express.json() está aqui!
 
-// Verifique o corpo da requisição
+app.use(express.json()); 
+
+
 app.post('/api/pedido', (req, res) => {
-  console.log("Corpo da requisição:", req.body); // Adiciona esse log para garantir que o corpo da requisição está sendo lido
+  console.log("Corpo da requisição:", req.body); 
   pedidoController.processarPedido(req, res);
 });
 app.post('/pedidos', PedidoController.getInstance().processarPedido);
-// Rotas
+
 app.use("/auth", authRoutes);
 
 const PORT = process.env.PORT || 3000;

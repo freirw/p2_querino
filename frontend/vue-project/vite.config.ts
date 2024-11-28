@@ -7,15 +7,15 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000', // URL do backend
+        target: 'http://localhost:3000', 
         changeOrigin: true,
-        secure: false, // Se necessário, pode desabilitar o SSL
+        secure: false, 
       },
     },
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // Configuração explícita do alias "@"
+      '@': path.resolve(__dirname, 'src'), 
     },
   },
 });

@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import CartItem from "./CarItem.vue";
-import axios from "axios"; // Importando axios para enviar requisições HTTP
+import axios from "axios"; 
 
 interface CartItemType {
   id: number;
@@ -26,19 +26,19 @@ export default {
   components: { CartItem },
   props: {
     cart: {
-      type: Array as () => CartItemType[], // Define explicitamente que 'cart' é um array de objetos do tipo CartItemType
+      type: Array as () => CartItemType[], 
       required: true,
     },
   },
   computed: {
     total() {
       // Calcula o total dos itens do carrinho
-      return this.cart.reduce((sum, item) => sum + item.price, 0); // A prop 'cart' agora é garantidamente um array
+      return this.cart.reduce((sum, item) => sum + item.price, 0); 
     },
   },
   methods: {
     removeFromCart(item: CartItemType) {
-      this.$emit("remove-from-cart", item); // Emite o evento para o componente pai
+      this.$emit("remove-from-cart", item); 
     },
     async proceedToPayment() {
       if (this.cart.length === 0) {
@@ -47,7 +47,6 @@ export default {
       }
 
       try {
-        // Envia os dados do pedido para o backend
         const response = await axios.post("http://localhost:3000/api/pedido", {
           items: this.cart,
           totalPrice: this.total,
@@ -56,8 +55,9 @@ export default {
         console.log("Pedido finalizado com sucesso:", response.data);
         alert("Pedido realizado com sucesso!");
 
-        // Limpa o carrinho após o pedido ser realizado
+
         this.$emit("clear-cart");
+        
       } catch (error) {
         console.error("Erro ao finalizar o pedido:", error);
         alert("Houve um erro ao realizar o pedido.");

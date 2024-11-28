@@ -1,4 +1,3 @@
-// src/models/Cliente.ts
 
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
@@ -15,7 +14,7 @@ export class Cliente {
   email: string;
 
   @Column()
-  senha: string; // Adiciona a propriedade senha ao modelo
+  senha: string; 
 
   constructor(id: number, nome: string, email: string, senha: string) {
     this.id = id;

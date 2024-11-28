@@ -3,7 +3,7 @@
     <div class="header-left">
       <h1>Jaegar Resto</h1>
       <p>{{ currentDate }}</p>
-      <p v-if="cliente">Cliente: {{ cliente.nome }}</p>  <!-- Exibe o nome do cliente -->
+      <p v-if="cliente">Cliente: {{ cliente.nome }}</p> 
     </div>
     <div class="header-center">
       <input
@@ -24,14 +24,14 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from "vue";
-import { getCliente } from "@/services/clienteService";  // Importa a função para obter o cliente
+import { getCliente } from "@/services/clienteService";  
 
 export default defineComponent({
   name: "Header",
   props: {
     cartCount: {
       type: Number,
-      required: true, // Número de itens no carrinho
+      required: true, 
     },
   },
   setup() {
@@ -45,7 +45,7 @@ export default defineComponent({
 
   const cliente = ref<any>(null);
 
-  // Função para carregar o cliente do backend
+  
   const carregarCliente = async () => {
   try {
     console.log("Carregando cliente...");
@@ -63,7 +63,7 @@ export default defineComponent({
     carregarCliente();
   });
 
-  // A função onSearch agora é retornada para ser usada no template
+ 
   const onSearch = () => {
     console.log("Busca realizada:", searchQuery.value);
   };
@@ -72,7 +72,7 @@ export default defineComponent({
     searchQuery,
     currentDate,
     cliente,
-    onSearch, // Expondo a função onSearch
+    onSearch, 
   };
 },
 });
@@ -87,12 +87,12 @@ export default defineComponent({
   color: white;
   border-bottom: 1px solid #444;
   
-  position: fixed; /* Fixa o cabeçalho no topo */
-  top: 0; /* Coloca no topo */
-  left: 0; /* Garante que fique alinhado à esquerda */
-  width: 100%; /* Ocupa toda a largura da tela */
-  z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
-  box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho total */
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  z-index: 1000; 
+  box-sizing: border-box; 
 }
 
 .header-left h1 {
@@ -110,11 +110,11 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1; /* Faz com que a área central ocupe o espaço restante */
+  flex-grow: 1; 
 }
 
 .header-center input {
-  width: 40rem; /* Ajuste o tamanho conforme necessário */
+  width: 40rem; 
   padding: 0.5rem;
   border: 1px solid #444;
   border-radius: 5px;

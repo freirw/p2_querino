@@ -17,7 +17,6 @@ export class PedidoController {
     return PedidoController.instance;
   }
 
-  // Método para processar pedido
   @validateBuilder
   public async processarPedido(req: Request, res: Response): Promise<void> {
     try {
@@ -27,7 +26,7 @@ export class PedidoController {
         res.status(400).send({
           error: 'Dados inválidos. Certifique-se de incluir idCliente e items.',
         });
-        return; // Adicione `return` para finalizar a execução
+        return; 
       }
 
       const builder = new PedidoBuilder();

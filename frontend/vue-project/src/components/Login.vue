@@ -40,7 +40,7 @@ export default defineComponent({
     const handleLogin = () => {
       if (email.value && password.value) {
         console.log("Usuário autenticado!");
-        router.push("/dashboard"); // Redireciona para o Dashboard
+        router.push("/dashboard"); 
       } else {
         console.error("Credenciais inválidas.");
       }
@@ -56,7 +56,7 @@ export default defineComponent({
 </script>
   
   <style scoped>
-  /* Estilos que já estão no componente */
+ 
   .login-container {
     display: flex;
     flex-direction: column;

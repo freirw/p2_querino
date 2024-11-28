@@ -5,17 +5,17 @@ import Register from "../components/Register.vue";
 
 const routes = [
   {
-    path: "/login", // Caminho para a tela de login
+    path: "/login", 
     name: "Login",
     component: Login,
   },
   {
-    path: "/register", // Caminho para a tela de login
+    path: "/register", 
     name: "Register",
     component: Register,
   },
   {
-    path: "/dashboard", // Caminho para o dashboard
+    path: "/dashboard", 
     name: "Dashboard",
     component: Dashboard,
   },

@@ -46,7 +46,6 @@
   </script>
   
   <style scoped>
-  /* Estilo do fundo */
   .register-container {
     display: flex;
     justify-content: center;
@@ -55,7 +54,6 @@
     
   }
   
-  /* Caixa de cadastro */
   .register-box {
     background-color: #2a2a40;
     border-radius: 10px;
@@ -76,7 +74,6 @@
     margin-bottom: 1.5rem;
   }
   
-  /* Campos de entrada */
   input[type="email"],
   input[type="password"] {
     width: 70%;

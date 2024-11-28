@@ -14,7 +14,7 @@
       :orderNumber="orderNumber"
       @close="toggleCart"
     />
-    <!-- Adicionando um bloco para mostrar os pedidos -->
+   
     <div v-if="pedidos.length > 0">
       <h3>Pedidos Recentes</h3>
       <ul>
@@ -40,24 +40,21 @@ export default {
   data() {
     return {
       cart: [],
-      isCartVisible: false, // Controla se o card de pedidos está visível
-      orderNumber: 34562, // Número fictício do pedido
-      pedidos: [] // Array para armazenar os pedidos
+      isCartVisible: false, 
+      orderNumber: 34562, 
+      pedidos: [] 
     };
   },
   methods: {
-    // Método para buscar os pedidos
     async fetchPedidos() {
       try {
-        // Chama o método do serviço para obter os pedidos
         const pedidos = await ProdutoService.obterPedidos();
         this.pedidos = pedidos;
-        console.log(pedidos) // Armazena os pedidos no estado
+        console.log(pedidos) 
       } catch (error) {
         console.error("Erro ao buscar pedidos:", error);
       }
     },
-    // Método para adicionar pratos ao carrinho
     addToCart(dish) {
       const existingItem = this.cart.find((item) => item.id === dish.id);
       if (existingItem) {
@@ -66,13 +63,11 @@ export default {
         this.cart.push({ ...dish, quantity: 1 });
       }
     },
-    // Método para alternar a visibilidade do carrinho
     toggleCart() {
       this.isCartVisible = !this.isCartVisible;
     },
   },
   mounted() {
-    // Chama o método para buscar pedidos assim que o componente for montado
     this.fetchPedidos();
   }
 };

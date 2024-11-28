@@ -11,7 +11,7 @@ export class DatabaseService {
     this.dataSource = new DataSource({
       type: 'mysql',
       host: 'localhost',
-      port: 3307, 
+      port: 3306, 
       username: 'root',
       password: '',
       database: 'jaegar_resto',
@@ -41,17 +41,16 @@ export class DatabaseService {
     return this.dataSource;
   }
 
-  // Método para buscar todos os clientes
   public async findAllClientes(): Promise<Cliente[]> {
     const clienteRepository = this.dataSource.getRepository(Cliente);
-    return await clienteRepository.find(); // Busca todos os clientes
+    return await clienteRepository.find(); 
   }
 
 
 
   public async savePedido(pedido: Pedido): Promise<void> {
-    const pedidoRepository = this.dataSource.getRepository(Pedido);  // Repositório para o modelo Pedido
-    await pedidoRepository.save(pedido);  // Salva o pedido no banco de dados
+    const pedidoRepository = this.dataSource.getRepository(Pedido);  
+    await pedidoRepository.save(pedido);  
     console.log('Pedido salvo com sucesso!');
   }
 }

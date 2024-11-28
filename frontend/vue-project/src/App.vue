@@ -11,14 +11,14 @@ export default {
 </script>
 
 <style>
-/* Estilo global para o fundo */
+
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  background-color: #1e1e2f; /* Fundo escuro */
+  background-color: #1e1e2f; 
   font-family: Arial, sans-serif;
   color: white;
 }
@@ -26,8 +26,8 @@ body {
 #app {
   height: 100%;
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; 
+  align-items: center; 
 }
 
 .app-container {
@@ -37,6 +37,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1e1e2f; /* Fundo escuro */
+  background-color: #1e1e2f; 
 }
 </style>

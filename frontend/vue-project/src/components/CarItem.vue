@@ -12,11 +12,11 @@
   export default {
     name: "CartItem",
     props: {
-      item: Object, // Recebe o item do carrinho como prop
+      item: Object, 
     },
     methods: {
       removeItem(item) {
-        this.$emit("remove-item", item); // Emite o evento para o componente pai
+        this.$emit("remove-item", item); 
       },
     },
   };

@@ -10,5 +10,5 @@ export class Pedido {
   idCliente: number;
 
   @OneToMany(() => Item, (item) => item.pedido)
-  itens: Item[]; // Não inicialize com um array vazio
+  itens: Item[]; 
 }
