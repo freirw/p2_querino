@@ -51,7 +51,7 @@
       </div>
       <div class="border-t border-gray-700 mt-4 pt-4">
         <div class="flex justify-between">
-          <p class="text-gray-400 text-sm">Discount</p>
+          <p class="text-gray-400 text-sm">Desconto</p>
           <p class="text-sm font-semibold">$0</p>
         </div>
         <div class="flex justify-between">
@@ -60,7 +60,7 @@
         </div>
       </div>
       <button class="w-full bg-orange-500 text-white mt-4 py-2 rounded-md font-medium">
-        Continue to Payment
+        Continuar Pagamento
       </button>
     </div>
   </template>

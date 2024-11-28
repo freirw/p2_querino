@@ -1,4 +1,3 @@
-// src/controllers/pedidoController.ts
 import { Request, Response } from 'express';
 import { DatabaseService } from '../databaseService';
 import { PedidoBuilder } from '../builders/PedidoBuilder';
@@ -9,7 +8,7 @@ export class PedidoController {
 
   private constructor() {}
 
-  // Singleton
+  
   public static getInstance(): PedidoController {
     if (!PedidoController.instance) {
       PedidoController.instance = new PedidoController();

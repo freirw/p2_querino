@@ -12,7 +12,7 @@ const pedidoController = PedidoController.getInstance();
 
 app.use(express.json()); 
 
-// Configuração básica do CORS
+
 app.use(cors({
   origin: 'http://localhost:5173', 
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
